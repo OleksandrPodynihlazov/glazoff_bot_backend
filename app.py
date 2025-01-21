@@ -5,7 +5,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-DB_PATH = "../business.db"
+DB_PATH ="/opt/render/project/src/business.db"
+
 
 @app.route("/services",methods=["GET"])
 def get_services():
