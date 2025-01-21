@@ -11,7 +11,7 @@ async def launch_web_ui(update: Update, callback: CallbackContext):
     kb = [
         [KeyboardButton(
             "Show me my Web-App!", 
-           web_app=WebAppInfo("https://san4ez_4otkuy.gitlab.io/telegram-app-test/") # obviously, set yours here.
+           web_app=WebAppInfo("https://front-deploy-8r81.onrender.com/") # obviously, set yours here.
         )]
     ]
     await update.message.reply_text("Let's do this...", reply_markup=ReplyKeyboardMarkup(kb))
