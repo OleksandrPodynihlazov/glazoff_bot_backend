@@ -1,3 +1,4 @@
 env/
 .env
 parser.py
+bot.py
