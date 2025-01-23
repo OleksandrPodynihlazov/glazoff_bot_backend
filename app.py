@@ -21,8 +21,8 @@ def get_services():
                 "service_id":row[0],
                 "service_url":row[1],
                 "service_name":row[2],
-                "service_p":row[3],
-                "service_price":row[4],
+                "service_price":row[3],
+                "service_p":row[4],
                 "service_image_url":row[5]
             }
             for row in rows
@@ -35,7 +35,7 @@ def get_services():
     except Exception as e:
         return jsonify({"error":str(e)}),500
 
-        
+
 @app.route('/api/orders', methods=['POST'])
 def create_order():
     try:
