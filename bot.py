@@ -12,12 +12,14 @@ async def launch_web_ui(update: Update, callback: CallbackContext):
         [KeyboardButton(
             "Show me my Web-App!", 
            web_app=WebAppInfo("https://front-deploy-8r81.onrender.com/") # obviously, set yours here.
-           #web_app=WebAppInfo("https://glazoff.com/")
         )]
     ]
     await update.message.reply_text("Let's do this...", reply_markup=ReplyKeyboardMarkup(kb))
 
 async def web_app_data(update: Update, context: CallbackContext):
+    # Логування отриманих даних для діагностики
+    print("Received WebApp Data:", update.message.web_app_data.data)
+    
     data = json.loads(update.message.web_app_data.data)
     await update.message.reply_text("Your data was:")
     for result in data:
