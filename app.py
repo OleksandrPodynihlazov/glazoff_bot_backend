@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
 import sqlite3
 from flask_cors import CORS
-from database import save_order 
+from database import save_order
+
 app = Flask(__name__)
 CORS(app)
 
