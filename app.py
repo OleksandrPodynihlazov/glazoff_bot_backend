@@ -6,7 +6,8 @@ from database import save_order
 app = Flask(__name__)
 CORS(app)
 
-DB_PATH ="business.db"
+DB_PATH ="/opt/render/project/src/business.db"
+#DB_PATH ="business.db"
 
 
 @app.route("/services",methods=["GET"])
@@ -36,7 +37,7 @@ def get_services():
     except Exception as e:
         return jsonify({"error":str(e)}),500
 
-        
+
 @app.route('/api/orders', methods=['POST'])
 def create_order():
     try:
@@ -58,4 +59,6 @@ def create_order():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=True)
+
