@@ -6,7 +6,8 @@ from database import save_order
 app = Flask(__name__)
 CORS(app)
 
-DB_PATH = "business.db"
+DB_PATH ="/opt/render/project/src/business.db"
+#DB_PATH = "business.db"
 
 
 @app.route("/services", methods=["GET"])
@@ -58,4 +59,6 @@ def create_order():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=True)
+
