@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
 import sqlite3
 from flask_cors import CORS
-from database import save_order 
+from database import save_order
+
 app = Flask(__name__)
 CORS(app)
 
@@ -21,8 +22,8 @@ def get_services():
                 "service_id":row[0],
                 "service_url":row[1],
                 "service_name":row[2],
-                "service_p":row[3],
-                "service_price":row[4],
+                "service_price":row[3],
+                "service_p":row[4],
                 "service_image_url":row[5]
             }
             for row in rows

@@ -2,3 +2,5 @@ env/
 .env
 parser.py
 bot.py
+__pycache__/
+
