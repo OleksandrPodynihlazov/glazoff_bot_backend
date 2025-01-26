@@ -1,7 +1,8 @@
+import os
 from flask import Flask, request, jsonify
 import sqlite3
 from flask_cors import CORS
-from database import save_order
+from database import save_order, save_user
 
 app = Flask(__name__)
 CORS(app)
@@ -42,15 +43,20 @@ def create_order():
     try:
         data = request.get_json()  # Отримуємо дані з запиту
         print("Отримані дані:", data)
+        telegramId = data["telegramId"]
         service_name = data["service_name"]
         user_name = data["user_name"]
         email = data["email"]
         phone = data["phone"]
         details = data.get("details", None)
+        order_date = data["order_date"]
+        tgFullname = data["tgFullname"]
+        tgUsername = data["tgUsername"]
 
         # Зберігаємо замовлення в базі даних
-        print(f"Saving order: {service_name}, {user_name}, {email}, {phone}, {details}")
-        save_order(service_name, user_name, email, phone, details)
+        print(f"Saving order: {service_name}, {user_name}, {email}, {phone}, {details},{order_date},{tgFullname},{tgUsername}")
+        save_order(telegramId,service_name, details, order_date)
+        save_user(user_name, email, phone, tgFullname, tgUsername)
 
         return jsonify({"message": "Order successfully created"}), 200
     except Exception as e:
