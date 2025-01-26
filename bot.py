@@ -9,7 +9,6 @@ from telegram.ext import (
 from config import BOT_TOKEN, BOT_USERNAME, SUPPORT_CONTACT
 import json
 
-
 # mini app
 async def launch_web_ui(update: Update, callback: CallbackContext):
     # display our web-app!
@@ -19,7 +18,7 @@ async def launch_web_ui(update: Update, callback: CallbackContext):
                 "Відкрити міні-додаток",
                 web_app=WebAppInfo(
                     "https://front-deploy-8r81.onrender.com/"
-                ),  # obviously, set yours here.
+                ),
             )
         ]
     ]
@@ -35,6 +34,10 @@ async def web_app_data(update: Update, context: CallbackContext):
 
             # Парсимо JSON-дані
             data = json.loads(raw_data)
+            print(f"Parsed WebApp Data: {data}")
+            
+            user_data={}
+            executer_data={}
 
             await context.bot.send_message(
                 chat_id=SUPPORT_CONTACT, text=f"Нове замовлення: {data}"
