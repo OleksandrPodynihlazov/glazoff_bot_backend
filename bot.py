@@ -22,7 +22,7 @@ async def launch_web_ui(update: Update, callback: CallbackContext):
             )
         ]
     ]
-    await update.message.reply_text(reply_markup=ReplyKeyboardMarkup(kb))
+    await update.message.reply_text(text="Запустіть веб додаток кнопкою внизу",reply_markup=ReplyKeyboardMarkup(kb))
 
 
 async def web_app_data(update: Update, context: CallbackContext):
