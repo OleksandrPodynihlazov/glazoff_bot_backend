@@ -44,7 +44,7 @@ def create_order():
         data = request.get_json()  # Отримуємо дані з запиту
         print("Отримані дані:", data)
 
-        service_name = data["service"]
+        service_name = data["service_name"]
         user_name = data["user_name"]
         email = data["email"]
         phone = data["phone"]
