@@ -43,15 +43,16 @@ def create_order():
     try:
         data = request.get_json()  # Отримуємо дані з запиту
         print("Отримані дані:", data)
-        telegramId = data["telegramId"]
-        service_name = data["service_name"]
+
+        service_name = data["service"]
         user_name = data["user_name"]
         email = data["email"]
         phone = data["phone"]
         details = data.get("details", None)
-        order_date = data["order_date"]
         tgFullname = data["tgFullname"]
         tgUsername = data["tgUsername"]
+        telegramId = data["tgId"]
+        order_date = data["order_date"]
 
         # Зберігаємо замовлення в базі даних
         print(f"Saving order: {service_name}, {user_name}, {email}, {phone}, {details},{order_date},{tgFullname},{tgUsername}")
