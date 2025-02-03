@@ -32,15 +32,15 @@ def initialize_tables():
     conn.commit()
 
 # Збереження замовлення
-def save_order(telegram_id,service_name, details,order_date):
-    print(f"Saving order:{telegram_id}, {service_name},{details},{order_date}")
+def save_order(telegramId,service_name, details, order_date):
+    print(f"Saving order:{telegramId}, {service_name},{details},{order_date}")
     cursor.execute('''
     INSERT INTO web_orders (telegram_id,service_name, details, order_date)
     VALUES (?, ?, ?, ?)
-    ''',( telegram_id,service_name, details, order_date))
-def save_user(telegram_id,user_name, email, phone, tgFullname,tgUsername):
-    cursor.execute('''INSERT OR REPLACE INTO users (telegramId,user_name,tgUsername,tgFullname, phone, email)
-            VALUES(?, ?, ?, ?, ?)''', ( telegram_id,user_name,email,phone,tgFullname,tgUsername))
+    ''',( telegramId,service_name, details, order_date))
+def save_user(telegramId,user_name, email, phone, tgFullname, tgUsername):
+    cursor.execute('''INSERT OR REPLACE INTO users (telegramId,user_name, email, phone, tgFullname, tgUsername)
+            VALUES(?, ?, ?, ?, ?, ?)''', (telegramId,user_name, email, phone, tgFullname, tgUsername))
     conn.commit()
 
 # Виконання ініціалізації таблиць
