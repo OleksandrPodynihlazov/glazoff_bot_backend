@@ -57,7 +57,7 @@ def create_order():
         # Зберігаємо замовлення в базі даних
         print(f"Saving order: {service_name}, {user_name}, {email}, {phone}, {details},{order_date},{tgFullname},{tgUsername}")
         save_order(telegramId,service_name, details, order_date)
-        save_user(user_name, email, phone, tgFullname, tgUsername)
+        save_user(telegramId,user_name, email, phone, tgFullname, tgUsername)
 
         return jsonify({"message": "Order successfully created"}), 200
     except Exception as e:
