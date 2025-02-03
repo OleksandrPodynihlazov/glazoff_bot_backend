@@ -7,13 +7,16 @@ cursor = conn.cursor()
 # Ініціалізація таблиць
 def initialize_tables():
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS web_orders(
+        DROP TABLE IF EXISTS web_orders
+    ''')
+    cursor.execute('''
+        CREATE TABLE web_orders(
                 order_id INTEGER PRIMARY KEY,
                 telegram_id INTEGER,
                 service_name TEXT,
                 details TEXT,
                 order_date TEXT,
-                FOREIGN KEY(telegramId) REFERENCES users(telegramId)
+                FOREIGN KEY(telegram_id) REFERENCES users(telegramId)
             )
         ''')
     cursor.execute('''
@@ -24,7 +27,6 @@ def initialize_tables():
                 phone TEXT,
                 tgFullname TEXT,
                 tgUsername TEXT
-                   
             )
         ''')
     conn.commit()
