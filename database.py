@@ -39,7 +39,7 @@ def save_order(telegram_id,service_name, details,order_date):
     VALUES (?, ?, ?, ?)
     ''',( telegram_id,service_name, details, order_date))
 def save_user(telegram_id,user_name, email, phone, tgFullname,tgUsername):
-    cursor.execute('''INSERT OR REPLACE INTO users (telegram_id,user_name,tgUsername,tgFullname, phone, email)
+    cursor.execute('''INSERT OR REPLACE INTO users (telegramId,user_name,tgUsername,tgFullname, phone, email)
             VALUES(?, ?, ?, ?, ?)''', ( telegram_id,user_name,email,phone,tgFullname,tgUsername))
     conn.commit()
 
